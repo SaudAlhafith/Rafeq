@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+
+  <meta charset="UTF-8">
+  <title>نموذج تسجيل</title>
+  <link rel="CSS" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>رفیق</h1>
+    <h2>تسجيل</h2>
+    <form action="/register" method="post">
+      <div class="form-group">
+        <label for="username">اسم المستخدم</label>
+        <input type="text" class="form-control" id="username" name="username">
+      </div>
+      <div class="form-group">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" class="form-control" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="password">كلمة المرور</label>
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
+      <div class="form-group">
+        <label for="confirm-password">تأكيد كلمة المرور</label>
+        <input type="password" class="form-control" id="confirm-password" name="confirm-password">
+      </div>
+      <button type="submit" class="btn btn-primary">تسجيل</button>
+    </form>
+  </div>
+
+  <script>
+    // Validate the form before submitting
+function validateForm() {
+  // Check if the username is empty
+  if (document.getElementById("username").value === "") {
+    alert("الرجاء إدخال اسم مستخدم.");
+    return false;
+  }
+
+  // Check if the email is valid
+  if (!/^\w+@\w+\.\w+$/.test(document.getElementById("email").value)) {
+    alert("الرجاء إدخال عنوان بريد إلكتروني صالح.");
+    return false;
+  }
+
+  // Check if the passwords match
+  if (document.getElementById("password").value !== document.getElementById("confirm-password").value) {
+    alert("كلمة المرور غير متطابقة.");
+    return false;
+  }
+
+  return true;
+}
+
+// Submit the form when the user clicks on the "Register" button
+document.getElementById("submit").onclick = function() {
+  if (validateForm()) {
+    // Do something with the form data
+  }
+};
+
+  </script>
+  
+</body>
+</html>
