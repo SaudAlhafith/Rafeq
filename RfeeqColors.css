@@ -162,7 +162,7 @@ button:hover {
   padding-right: 10px; 
   padding-top: 20px; 
   padding-bottom: 20px; 
-  left: 40px; 
+  left: 8%; /* it was 40px */
   top: 192px; 
   position: absolute; 
   background: white; 
@@ -222,6 +222,8 @@ line-height: normal;
 }
 
 .Register-Button{
+  height: 40px;
+  width: 250px;
   padding-left: 45px; 
   padding-right: 45px; 
   padding-top: 10px; 
