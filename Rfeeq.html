@@ -77,40 +77,61 @@ document.getElementById("submit").onclick = function() {
 <body>
   <!-- Base Background -->
   <div class="BaseBackground">
-    <div >
+
+    <div>
       <!-- Background img -->
       <img class ="background-image" src="https://via.placeholder.com/390x844" />
       <div style=""></div>
     </div>
-    <div id="Register-Background" >
-      <div class="Register-Text" >Register</div>
-      <div class="Register-Boxes">
-        <!-- Form UserName -->
-        <div class= "Register-Forms_Frame">
-          <div Class="Register-Forms-Text"></div>
-          <div Class="Register-Froms-input" >Username</div>
+
+
+    <form action="/register" method="post">
+      <div id="Register-Background" >
+        <div class="Register-Text" >Register</div>
+        <div class="Register-Boxes">
+          <!-- Form UserName -->
+          <div class= "Register-Forms_Frame">
+            <label for="username">اسم المستخدم</label>
+            <input type="text" class="Register-Forms-Text" id="username" name="username">
+            <!-- //<div Class="Register-Forms-Text"></div> -->
+            <!-- //Username</div> -->
+          </div>
+          <!-- Form E-Mail -->
+          <div class= "Register-Forms_Frame">
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" class="form-control" id="email" name="email">
+            <!-- //<div Class="Register-Forms-Text"></div> -->
+            <!-- //<div Class="Register-Froms-input">E-Mail</div> -->
+          </div>
+          <!-- Form Password -->
+          <div class= "Register-Forms_Frame">
+            <label for="password">كلمة المرور</label>
+            <input type="password" class="form-control" id="password" name="password">
+            <!-- //<div Class="Register-Forms-Text"></div> -->
+            <!-- //<div Class="Register-Froms-input">Password</div> -->
+          </div>
+          <!-- Form Confirm Password -->
+          <div class= "Register-Forms_Frame">
+            <label for="confirm-password">تأكيد كلمة المرور</label>
+            <input type="password" class="form-control" id="confirm-password" name="confirm-password">
+            <!-- //<div Class="Register-Forms-Text"></div> -->
+            <!-- //<div Class="Register-Froms-input">Confirm Password</div> -->
+          </div>
         </div>
-        <!-- Form E-Mail -->
-        <div class= "Register-Forms_Frame">
-          <div Class="Register-Forms-Text"></div>
-          <div Class="Register-Froms-input">E-Mail</div>
-        </div>
-        <!-- Form Password -->
-        <div class= "Register-Forms_Frame">
-          <div Class="Register-Forms-Text"></div>
-          <div Class="Register-Froms-input">Password</div>
-        </div>
-        <!-- Form Confirm Password -->
-        <div class= "Register-Forms_Frame">
-          <div Class="Register-Forms-Text"></div>
-          <div Class="Register-Froms-input">Confirm Password</div>
+        <!-- Register Button -->
+        
+        <div Class="Register-Button">
+          <button type="submit" class="Register-Button">
+           <div Class="Register-Button-Text">Register</div>
+          </button>
         </div>
       </div>
-      <!-- Register Button -->
-      <div Class="Register-Button">
-        <div Class="Register-Button-Text">Register</div>
-      </div>
-    </div>
+    </form>
+
+
+
+
+  
     <!-- Google Signup Button -->
     <div id="Google-Button-Base">
       <div Class="Google-Button-Background"></div>
@@ -127,6 +148,47 @@ document.getElementById("submit").onclick = function() {
     <!-- Main Rfeeq Text Under Logo -->
     <div Class="Rfeeq-Text">رفيق</div>
   </div>
+
+
+
+
+
+
+
+  <script>
+    // Validate the form before submitting
+function validateForm() {
+  // Check if the username is empty
+  if (document.getElementById("username").value === "") {
+    alert("الرجاء إدخال اسم مستخدم.");
+    return false;
+  }
+
+  // Check if the email is valid
+  if (!/^\w+@\w+\.\w+$/.test(document.getElementById("email").value)) {
+    alert("الرجاء إدخال عنوان بريد إلكتروني صالح.");
+    return false;
+  }
+
+  // Check if the passwords match
+  if (document.getElementById("password").value !== document.getElementById("confirm-password").value) {
+    alert("كلمة المرور غير متطابقة.");
+    return false;
+  }
+
+  return true;
+}
+
+// Submit the form when the user clicks on the "Register" button
+document.getElementById("submit").onclick = function() {
+  if (validateForm()) {
+    // Do something with the form data
+  }
+};
+
+  </script>
+
+  
 </body>
 
 
