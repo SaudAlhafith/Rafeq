@@ -184,3 +184,7 @@ function hideWarning() {
     const warningDiv = document.getElementById('warning');
     warningDiv.style.display = 'none'; // Hide the warning
 }
+let search = document.getElementById("search");
+search.addEventListener("click", ()=>{
+    searchYouTube()
+})
