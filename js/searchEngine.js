@@ -9,6 +9,11 @@ function isArabic(text) {
     return arabicPattern.test(text);
 }
 
+function clearResults() {
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = ''; // clear previous results
+}
+
 function translateText(text, targetLanguage, callback) {
     // Check if translation exists in the courseTranslations dictionary
     let translatedText = courseTranslations[text];
@@ -130,6 +135,8 @@ function formatDate(isoDateString) {
 
 
 function displayResults(items, type) {
+    
+    const resultsDiv = document.getElementById('results');
     clearResults()
 
     items.forEach(item => {
@@ -158,11 +165,6 @@ function displayResults(items, type) {
             </div>
         `;
     });
-}
-
-function clearResults() {
-    const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = ''; // clear previous results
 }
 
 function showWarning(message) {
