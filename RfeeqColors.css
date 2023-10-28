@@ -93,13 +93,19 @@ form {
 
 label {
   font-weight: bold;
+  font-family: sans-serif;
 }
-
+/* Here the Forms input design */
 input,
 select {
   width: 90%;
-  border: 1px solid #ccc;
+  border: none;
+  border-radius: 10px;
+  border-top-right-radius: 1px;
+  border-top-left-radius: 1px;
+  background-color: #E8E8E8;
   padding: 10px;
+  margin-top: 3px;
 }
 
 input:focus,
@@ -133,6 +139,9 @@ button:hover {
 /* Here The main Css */
 
 .BaseBackground {
+  background: linear-gradient(350deg, #27D1B3 5.17%, #3351C5 93.09%);
+
+
    width: 390px;
    height: 844px;
    position: relative;
@@ -142,6 +151,7 @@ button:hover {
 
 /* Background image container */
 .background-image-container {
+  
   width: 390px;
    height: 844px; 
    left: 0px; 
@@ -150,6 +160,7 @@ button:hover {
 }
 
 .background-image{
+  background-image: url('AppFiles/RegisterBackGround2.jpg');
   width: 390px; 
   height: 844px; 
   left: 0px; 
@@ -158,10 +169,10 @@ button:hover {
 }
 
 #Register-Background{
-  padding-left: 10px; 
-  padding-right: 10px; 
+  padding-left: 9px; 
+  padding-right: 15px; 
   padding-top: 20px; 
-  padding-bottom: 20px; 
+  padding-bottom: 35px; 
   left: 8%; /* it was 40px */
   top: 192px; 
   position: absolute; 
@@ -178,7 +189,7 @@ button:hover {
 
 .Register-Text{
   color: #1C96F9;
-font-family: Inter;
+font-family: inherit;
 font-size: 24px;
 font-style: normal;
 font-weight: 700;
@@ -201,7 +212,7 @@ line-height: normal;
   width: 280px;
   position: relative;
 }
-.Register-Froms-Text{
+.Register-Forms-Text{
   width: 240px; 
   height: 40x; 
   left: 0px; 
@@ -210,7 +221,9 @@ line-height: normal;
   background: #E8E8E8; 
   border-radius: 4px
 }
-.Register-Froms-input{
+.Register-Forms-input{
+  border-style: hidden;
+  background-color: grey;
   left: 0px; 
   top: 0px; 
   position: absolute; 
@@ -233,50 +246,68 @@ line-height: normal;
   justify-content: center; 
   align-items: center; 
   gap: 10px; 
-  display: inline-flex
+  display: inline-flex;
+  font-family: sans-serif;
 }
 .Register-Button-Text{
   color: white; 
   font-size: 16px; 
-  font-family: Inter; 
+  font-family: sans-serif; 
   font-weight: 700; 
   word-wrap: break-word
 }
 
 #Google-Button-Base{
-  width: 300.36px; 
-  height: 46px; 
+  width: 300px; 
+  height: 45px; 
   left: 45px; 
   top: 673px; 
-  position: absolute
+  position: absolute;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.10);
+  border: 0.5px #C7C6C6 none;
+  border-radius: 10px; 
 }
 
 .Google-Button-Background{
-  width: 300.36px; 
-  height: 46px; 
+  /* width: 300px;  */
+  /* height: 45px;  */
   left: 0px; 
   top: 0px; 
   position: absolute; 
   background: white; 
-  border: 0.87px #C7C6C6 solid
+  border: 0.5px #C7C6C6 none;
+  border-radius: 10px;
+}
+#Google-Button{
+  width: 300px; 
+  height: 45px; 
+  left: 0px; 
+  top: 0px; 
+  position: absolute; 
+  background: white; 
+  border: 0.5px #C7C6C6 none;
+  border-radius: 10px;
+}
+#Google-Button:hover {
+  background-color: rgba(196, 193, 193, 0.438);
 }
 .Google-Button-Text{
-  width: 204.64px; 
-  height: 17.33px; 
-  left: 69.36px; 
+  width: 200px; 
+  height: 15px; 
+  left: 60px; 
   top: 12px; 
   position: absolute; 
   color: #020203; 
   font-size: 20px; 
-  font-family: Roboto; 
+  font-family: sans-serif; 
   font-weight: 700; 
   word-wrap: break-word
 }
 .Google-Button-Icon{
-  width: 23.26px; 
-  height: 23.73px; 
-  left: 11.49px; 
-  top: 11.17px; 
+  width: 23px; 
+  height: 23px; 
+  left: 10px; 
+  top: 5px; 
   position: absolute
 }
 
@@ -284,7 +315,7 @@ line-height: normal;
   width: 52px; 
   height: 52px; 
   left: 168px; 
-  top: 66px; 
+  top: 105px; 
   position: absolute
 }
 .Rfeeq-Text{
@@ -293,7 +324,7 @@ line-height: normal;
   text-align: center; 
   color: black; 
   font-size: 30px; 
-  font-family: Roboto; 
-  font-weight: 500; 
+  font-style: ; 
+  font-weight: Bold; 
   word-wrap: break-word
 }

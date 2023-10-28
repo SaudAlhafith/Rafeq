@@ -7,7 +7,7 @@
   <link rel="stylesheet" type="text/css" href="RfeeqColors.css">
 </head>
 
-
+<!-- 
 
 <body>
   <div class="container">
@@ -67,7 +67,7 @@ document.getElementById("submit").onclick = function() {
 
   </script>
   
-</body>
+</body> -->
 
 
 
@@ -80,7 +80,7 @@ document.getElementById("submit").onclick = function() {
 
     <div>
       <!-- Background img -->
-      <img class ="background-image" src="https://via.placeholder.com/390x844" />
+      <img class ="background-image" src="AppFiles/RegisterBaseBackground.jpg"/>
       <div style=""></div>
     </div>
 
@@ -89,30 +89,31 @@ document.getElementById("submit").onclick = function() {
       <div id="Register-Background" >
         <div class="Register-Text" >Register</div>
         <div class="Register-Boxes">
+
           <!-- Form UserName -->
           <div class= "Register-Forms_Frame">
-            <label for="username">اسم المستخدم</label>
-            <input type="text" class="Register-Forms-Text" id="username" name="username">
+            <label for="username">Username</label>
+            <input type="text" class="Register-Forms-inputs" id="username" name="username">
             <!-- //<div Class="Register-Forms-Text"></div> -->
             <!-- //Username</div> -->
           </div>
           <!-- Form E-Mail -->
           <div class= "Register-Forms_Frame">
-            <label for="email">البريد الإلكتروني</label>
+            <label for="email">E-mail</label>
             <input type="email" class="form-control" id="email" name="email">
             <!-- //<div Class="Register-Forms-Text"></div> -->
             <!-- //<div Class="Register-Froms-input">E-Mail</div> -->
           </div>
           <!-- Form Password -->
           <div class= "Register-Forms_Frame">
-            <label for="password">كلمة المرور</label>
+            <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password">
             <!-- //<div Class="Register-Forms-Text"></div> -->
             <!-- //<div Class="Register-Froms-input">Password</div> -->
           </div>
           <!-- Form Confirm Password -->
           <div class= "Register-Forms_Frame">
-            <label for="confirm-password">تأكيد كلمة المرور</label>
+            <label for="confirm-password">Confirm Password</label>
             <input type="password" class="form-control" id="confirm-password" name="confirm-password">
             <!-- //<div Class="Register-Forms-Text"></div> -->
             <!-- //<div Class="Register-Froms-input">Confirm Password</div> -->
@@ -135,19 +136,22 @@ document.getElementById("submit").onclick = function() {
   
     <!-- Google Signup Button -->
     <div id="Google-Button-Base">
-      <div Class="Google-Button-Background"></div>
-      <div Class="Google-Button-Text"> Sign up with Google</div>
-      <div Class="Google-Button-Icon"> <!--These Four lines under this line can be replaced by one pic for google -->
-        <div style="width: 11.40px; height: 11.17px; left: 11.86px; top: 9.68px; position: absolute; background: #4877BB"></div>
-        <div style="width: 18.44px; height: 9.53px; left: 1.27px; top: 14.20px; position: absolute; background: #21A849"></div>
-        <div style="width: 5.10px; height: 10.74px; left: 0px; top: 6.48px; position: absolute; background: #FBBA10"></div>
-        <div style="width: 18.55px; height: 9.53px; left: 1.25px; top: 0px; position: absolute; background: #E73830"></div>
-      </div>
+      <div Class="Google-Button-Background">
+         <button type="submit" id="Google-Button">
+        <div Class="Google-Button-Text"> Sign up with Google</div>
+        <div Class="Google-Button-Icon"> 
+         <img class="Google-Button-Icon" src="AppFiles/googleLogo.png" />
+        </button>
+        </div>
+       </div>
     </div>
+
+
     <!-- Rfeeq Logo -->
-    <img Id="Rfeeq-Logo" src="https://via.placeholder.com/52x52" />
+    <img Id="Rfeeq-Logo" src="AppFiles/RfeeqLogo.png" />
+    
     <!-- Main Rfeeq Text Under Logo -->
-    <div Class="Rfeeq-Text">رفيق</div>
+    <!-- <div Class="Rfeeq-Text">رفيق</div> -->
   </div>
 
 
@@ -161,19 +165,19 @@ document.getElementById("submit").onclick = function() {
 function validateForm() {
   // Check if the username is empty
   if (document.getElementById("username").value === "") {
-    alert("الرجاء إدخال اسم مستخدم.");
+    alert("Please Inter Username");
     return false;
   }
 
   // Check if the email is valid
   if (!/^\w+@\w+\.\w+$/.test(document.getElementById("email").value)) {
-    alert("الرجاء إدخال عنوان بريد إلكتروني صالح.");
+    alert("Please Inter a valid E-Mail.");
     return false;
   }
 
   // Check if the passwords match
   if (document.getElementById("password").value !== document.getElementById("confirm-password").value) {
-    alert("كلمة المرور غير متطابقة.");
+    alert("Passwords didn't match");
     return false;
   }
 
