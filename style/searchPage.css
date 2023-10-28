@@ -64,6 +64,21 @@ body {
     background-color: #77c0fc;
 }
 
+.warning {
+    display: none; /* Initially hidden */
+    color: rgba(255, 0, 0, 0.8);
+    padding-right: 10px;
+    text-align: right;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.warning i {
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+
 #results div.card {
     background-color: #fff;
     padding: 20px;

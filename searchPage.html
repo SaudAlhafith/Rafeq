@@ -5,24 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YouTube Search</title>
     <link rel="stylesheet" href="style/searchPage.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 
 <body>
     <div class="phone-container">
         <div class="search-container">
-            <div class="top-row">  <!-- Add this container div -->
-                <input type="text" id="searchQuery1" placeholder="رمز المقرر">
-                <input type="text" id="searchQuery2" placeholder="اسم المادة">
+            <div class="top-row"> <!-- Add this container div -->
+                <input type="text" id="searchCourse" placeholder="اسم المادة">
+                <input type="text" id="searchCode" placeholder="رمز المقرر">
             </div>
             <div class="top-row">
                 <button onclick="searchYouTube()">بحث</button>
-                <input type="text" id="searchQuery3" style="width: auto;" placeholder="اسم الدرس">
+                <input type="text" id="searchLesson" style="width: auto;" placeholder="اسم الدرس">
             </div>
-            
+            <div id="warning" class="warning">
+                يجب كتابة رمز المقرر
+                <i class="material-icons">warning</i> 
+            </div>
         </div>
         <div id="results"></div>
     </div>
-    
+
     <script src="js/searchEngine.js"></script>
 </body>
 
