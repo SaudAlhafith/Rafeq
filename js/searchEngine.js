@@ -1,5 +1,5 @@
 
-const API_KEY = 'AIzaSyDKC-njsEW2j32V9qt9260SGT7fw9zP1IM';
+const API_KEY = 'AIzaSyBM4mERZV8sBdua6VQ5LYDlTZ7Ya4HyiQM';
 
 
 var label = document.getElementById('language-label');
@@ -135,36 +135,40 @@ function formatDate(isoDateString) {
 
 
 function displayResults(items, type) {
-    
     const resultsDiv = document.getElementById('results');
-    clearResults()
+    clearResults();
 
-    items.forEach(item => {
-        let id, linkURL, thumbnailURL;
+    if (items && Array.isArray(items)) {
+        items.forEach(item => {
+            let id, linkURL, thumbnailURL;
 
-        const title = item.snippet.title;
-        const channelTitle = item.snippet.channelTitle;
-        const publishTime = formatDate(item.snippet.publishTime);
-        thumbnailURL = item.snippet.thumbnails.medium.url;
+            const title = item.snippet.title;
+            const channelTitle = item.snippet.channelTitle;
+            const publishTime = formatDate(item.snippet.publishTime);
+            thumbnailURL = item.snippet.thumbnails.medium.url;
 
-        if (type === 'playlist') {
-            id = item.id.playlistId;
-            linkURL = `https://www.youtube.com/playlist?list=${id}`;
-        } else if (type === 'video') {
-            id = item.id.videoId;
-            linkURL = `https://www.youtube.com/watch?v=${id}`;
-        }
+            if (type === 'playlist') {
+                id = item.id.playlistId; // There's a typo here; should be `item.id.playlistId` not `item.id.videoId`
+                linkURL = `https://www.youtube.com/playlist?list=${id}`;
+            } else if (type === 'video') {
+                id = item.id.videoId;
+                linkURL = `https://www.youtube.com/watch?v=${id}`;
+            }
 
-        resultsDiv.innerHTML += `
-            <div class="card">
-                <img src="${thumbnailURL}" alt="${title} thumbnail" class="thumbnail">
-                <h3>${title}</h3>
-                <p>Channel: ${channelTitle}</p>
-                <p>Published: ${publishTime}</p>
-                <a href="${linkURL}" target="_blank">View ${type.charAt(0).toUpperCase() + type.slice(1)}</a>
-            </div>
-        `;
-    });
+            resultsDiv.innerHTML += `
+                <div class="card">
+                    <img src="${thumbnailURL}" alt="${title} thumbnail" class="thumbnail">
+                    <h3>${title}</h3>
+                    <p>Channel: ${channelTitle}</p>
+                    <p>Published: ${publishTime}</p>
+                    <a href="${linkURL}" target="_blank">View ${type.charAt(0).toUpperCase() + type.slice(1)}</a>
+                </div>
+            `;
+        });
+    } else {
+        // Handle the case where `items` is not defined or is not an array
+        showWarning("No results found.");
+    }
 }
 
 function showWarning(message) {
