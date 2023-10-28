@@ -1,0 +1,29 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Search</title>
+    <link rel="stylesheet" href="style/searchPage.css">
+</head>
+
+<body>
+    <div class="phone-container">
+        <div class="search-container">
+            <div class="top-row">  <!-- Add this container div -->
+                <input type="text" id="searchQuery1" placeholder="Enter part 1">
+                <input type="text" id="searchQuery2" placeholder="Enter part 2">
+            </div>
+            <div class="top-row">
+                <input type="text" id="searchQuery3" style="width: auto;" placeholder="Enter part 3">
+                <button onclick="searchYouTube()">Search</button>
+            </div>
+            
+        </div>
+        <div id="results"></div>
+    </div>
+    
+    <script src="js/searchEngine.js"></script>
+</body>
+
+</html>

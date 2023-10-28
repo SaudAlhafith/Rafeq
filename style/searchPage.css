@@ -1,0 +1,100 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;  /* Adding Roboto for a more modern look */
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.phone-container {
+    width: 390px;
+    height: 844px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Container for the search bar */
+.search-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the elements to wrap onto the next line */
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.top-row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Style for the input fields */
+.search-container input[type="text"] {
+    padding: 10px;
+    flex: 1; /* Allows the inputs to take up equal width */
+    width: calc(50% - 15px);
+    margin: 5px; /* Added margin for spacing */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.search-container input[type="text"]:hover,
+.search-container input[type="text"]:focus {
+    border-color: #1C96F9;
+}
+
+/* Style for the search button */
+.search-container button {
+    padding: 10px 15px;
+    background-color: #1C96F9;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px; /* Added margin for spacing */
+}
+
+.search-container button:hover {
+    background-color: #77c0fc;
+}
+
+#results div.card {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 10px solid transparent;
+    border-image: linear-gradient(to bottom, #27D1B3, #3351C5, #1C96F9);
+    border-image-slice: 1;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+#results div.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+#results div.card h3 {
+    margin-top: 0;
+}
+
+#results div.card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #1C96F9;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#results div.card a:hover {
+    color: #3351C5;
+    text-decoration: underline;
+}
