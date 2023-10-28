@@ -1,5 +1,8 @@
 body {
-  width: 390px; height: 844px; left: 0px; top: 0px; position: absolute; background: linear-gradient(350deg, #27D1B3 0%, #3351C5 100%);
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  background: linear-gradient(350deg, #27D1B3 0%, #3351C5 100%);
   font-family: sans-serif;
   background-color: #f5f5f5;
 }
@@ -31,14 +34,13 @@ label {
   font-weight: bold;
   font-family: sans-serif;
 }
+
 /* Here the Forms input design */
 input,
 select {
   width: 90%;
   border: none;
   border-radius: 10px;
-  border-top-right-radius: 1px;
-  border-top-left-radius: 1px;
   background-color: #E8E8E8;
   padding: 10px;
   margin-top: 3px;
@@ -59,208 +61,189 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #000080;
-}
-
-
-
-
-
-
-
-
-
-
 /* Here The main Css */
 
 .BaseBackground {
   background: linear-gradient(350deg, #27D1B3 5.17%, #3351C5 93.09%);
 
 
-   width: 390px;
-   height: 844px;
-   position: relative;
-   background: white
+  width: 390px;
+  height: 844px;
+  position: relative;
+  background: white
 }
 
 
 /* Background image container */
 .background-image-container {
-  
+
   width: 390px;
-   height: 844px; 
-   left: 0px; 
-   top: 0px; 
+  height: 844px;
+  left: 0px;
+  top: 0px;
   position: absolute;
 }
 
-.background-image{
+.background-image {
   background-image: url('AppFiles/RegisterBackGround2.jpg');
-  width: 390px; 
-  height: 844px; 
-  left: 0px; 
-  top: 0px; 
+  width: 390px;
+  height: 844px;
+  left: 0px;
+  top: 0px;
   position: absolute;
 }
 
-#Register-Background{
-  padding-left: 9px; 
-  padding-right: 15px; 
-  padding-top: 20px; 
-  padding-bottom: 35px; 
-  left: 8%; /* it was 40px */
-  top: 192px; 
-  position: absolute; 
-  background: white; 
-  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.15); 
-  border-radius: 5px; 
-  overflow: hidden; 
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
-  gap: 20px; 
+#Register-Background {
+  padding: 20px;
+  left: 8%;
+  /* it was 40px */
+  top: 192px;
+  position: absolute;
+  background: white;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   display: inline-flex
 }
 
-.Register-Text{
+.Register-Text {
   color: #1C96F9;
-font-family: inherit;
-font-size: 24px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+  font-family: inherit;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
-.Register-Boxes{
+.Register-Boxes {
   width: 300px;
-  border-radius: 10px; 
-  overflow: hidden; 
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
-  gap: 20px; 
+  border-radius: 6px;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   display: flex
 }
 
-.Register-Forms_Frame{
-  height: 60px; 
+.Register-Forms_Frame {
+  height: 60px;
   width: 280px;
   position: relative;
 }
-.Register-Forms-Text{
-  width: 240px; 
-  height: 40x; 
-  left: 0px; 
-  top: 23px; 
-  position: absolute; 
-  background: #E8E8E8; 
+
+.Register-Forms-Text {
+  width: 240px;
+  height: 40x;
+  left: 0px;
+  top: 23px;
+  position: absolute;
+  background: #E8E8E8;
   border-radius: 4px
 }
-.Register-Forms-input{
+
+.Register-Forms-input {
   border-style: hidden;
   background-color: grey;
-  left: 0px; 
-  top: 0px; 
-  position: absolute; 
-  color: black; 
-  font-size: 16px; 
-  font-family: Inter; 
-  font-weight: 400; 
+  position: absolute;
+  color: black;
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
   word-wrap: break-word
 }
 
-.Register-Button{
+.Register-Button {
   height: 40px;
   width: 250px;
-  padding-left: 45px; 
-  padding-right: 45px; 
-  padding-top: 10px; 
-  padding-bottom: 10px; 
-  background: #1C96F9; 
-  border-radius: 5px; 
-  justify-content: center; 
-  align-items: center; 
-  gap: 10px; 
+  top: 0px;
+  background: #1C96F9;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   display: inline-flex;
   font-family: sans-serif;
+  transition: ease-in-out 0.2s; 
 }
-.Register-Button-Text{
-  color: white; 
-  font-size: 16px; 
-  font-family: sans-serif; 
-  font-weight: 700; 
+
+.Register-Button:hover {
+  background: #59aff6;
+}
+
+.Register-Button-Text {
+  color: white;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
   word-wrap: break-word
 }
 
-#Google-Button-Base{
-  width: 300px; 
-  height: 45px; 
-  left: 45px; 
-  top: 673px; 
+#Google-Button-Base {
+  width: 300px;
+  height: 45px;
+  left: 45px;
+  top: 673px;
   position: absolute;
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.10);
   border: 0.5px #C7C6C6 none;
-  border-radius: 10px; 
+  border-radius: 10px;
+  transition: ease-in-out 0.2s;
 }
 
-.Google-Button-Background{
-  /* width: 300px;  */
-  /* height: 45px;  */
-  left: 0px; 
-  top: 0px; 
-  position: absolute; 
-  background: white; 
-  border: 0.5px #C7C6C6 none;
+#Google-Button {
+  width: 300px;
+  height: 45px;
+  position: absolute;
+  background: white;
   border-radius: 10px;
 }
-#Google-Button{
-  width: 300px; 
-  height: 45px; 
-  left: 0px; 
-  top: 0px; 
-  position: absolute; 
-  background: white; 
-  border: 0.5px #C7C6C6 none;
-  border-radius: 10px;
+
+#Google-Button-Base:hover {
+  top: 670px;
 }
-#Google-Button:hover {
-  background-color: rgba(196, 193, 193, 0.438);
-}
-.Google-Button-Text{
-  width: 200px; 
-  height: 15px; 
-  left: 60px; 
-  top: 12px; 
-  position: absolute; 
-  color: #020203; 
-  font-size: 20px; 
-  font-family: sans-serif; 
-  font-weight: 700; 
+
+.Google-Button-Text {
+  width: 200px;
+  height: 15px;
+  left: 60px;
+  top: 12px;
+  position: absolute;
+  color: #020203;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 700;
   word-wrap: break-word
 }
-.Google-Button-Icon{
-  width: 23px; 
-  height: 23px; 
-  left: 10px; 
-  top: 5px; 
+
+.Google-Button-Icon {
+  width: 23px;
+  height: 23px;
+  left: 10px;
+  top: 5px;
   position: absolute
 }
 
-#Rfeeq-Logo{
-  width: 52px; 
-  height: 52px; 
-  left: 168px; 
-  top: 105px; 
+#Rfeeq-Logo {
+  width: 52px;
+  height: 52px;
+  left: 168px;
+  top: 105px;
   position: absolute
 }
-.Rfeeq-Text{
-  left: 165px; top: 126px; 
-  position: absolute; 
-  text-align: center; 
-  color: black; 
-  font-size: 30px; 
+
+.Rfeeq-Text {
+  left: 165px;
+  top: 126px;
+  position: absolute;
+  text-align: center;
+  color: black;
+  font-size: 30px;
   font-style: sans-serif;
-  font-weight: Bold; 
+  font-weight: Bold;
   word-wrap: break-word
 }
