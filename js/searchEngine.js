@@ -111,6 +111,15 @@ function fetchYouTubeData(query, contentType) {
 }
 
 
+function formatDate(isoDateString) {
+    const date = new Date(isoDateString);
+    const day = date.toLocaleString('default', { day: '2-digit' })
+    const month = date.toLocaleString('default', { month: '2-digit' }).toLowerCase();
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+}
+
+
 function displayResults(items, type) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = ''; // clear previous results
@@ -120,7 +129,7 @@ function displayResults(items, type) {
 
         const title = item.snippet.title;
         const channelTitle = item.snippet.channelTitle;
-        const publishTime = item.snippet.publishTime;
+        const publishTime = formatDate(item.snippet.publishTime);
         thumbnailURL = item.snippet.thumbnails.medium.url;
 
         if (type === 'playlist') {
@@ -130,7 +139,7 @@ function displayResults(items, type) {
             id = item.id.videoId;
             linkURL = `https://www.youtube.com/watch?v=${id}`;
         }
-        console.log(`${title} ${channelTitle} ${publishTime} ${linkURL}`)
+
         resultsDiv.innerHTML += `
             <div class="card">
                 <img src="${thumbnailURL}" alt="${title} thumbnail" class="thumbnail">
@@ -142,6 +151,7 @@ function displayResults(items, type) {
         `;
     });
 }
+
 
 
 function showWarning(message) {
