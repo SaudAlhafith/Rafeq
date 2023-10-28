@@ -1,5 +1,5 @@
 
-const API_KEY = 'AIzaSyBM4mERZV8sBdua6VQ5LYDlTZ7Ya4HyiQM';
+const API_KEY = 'AIzaSyDw0Xeh-9RvAbqFoZkmj-JPkt8exehJQnY';
 
 
 var label = document.getElementById('language-label');
