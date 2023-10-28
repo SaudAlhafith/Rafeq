@@ -47,19 +47,23 @@ function searchYouTube() {
 
     if (searchCode == "") {
         showWarning("الرجاء إدخال رمز المادة.");
+        clearResults()
         return;
     }
     if (searchCourse == "") {
         showWarning("الرجاء إدخال اسم المادة.");
+        clearResults()
         return;
     }
 
     if (searchLesson != "") {
         if (isArabic(searchLesson) && label.textContent === 'Eng') {
             showWarning("الرجاء إدخال اسم الدرس باللغة الإنجليزية.");
+            clearResults()
             return;
         } else if (!isArabic(searchLesson) && label.textContent === 'عربي') {
             showWarning("الرجاء إدخال اسم الدرس باللغة العربية.");
+            clearResults()
             return;
         }
         contentType = "video";
@@ -121,8 +125,7 @@ function formatDate(isoDateString) {
 
 
 function displayResults(items, type) {
-    const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = ''; // clear previous results
+    clearResults()
 
     items.forEach(item => {
         let id, linkURL, thumbnailURL;
@@ -152,7 +155,10 @@ function displayResults(items, type) {
     });
 }
 
-
+function clearResults() {
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = ''; // clear previous results
+}
 
 function showWarning(message) {
     const warningDiv = document.getElementById('warning');
