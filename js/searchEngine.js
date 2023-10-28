@@ -13,11 +13,16 @@ function translateText(text, targetLanguage, callback) {
     // Check if translation exists in the courseTranslations dictionary
     let translatedText = courseTranslations[text];
 
+    if (!translatedText) {
+        showWarning("الرجاء إدخال اسم مادة صحيح.");
+        return;
+    }
+
     // If translation exists, and target language is English, use the provided translation
     if (translatedText && targetLanguage === 'en') {
         callback(translatedText);
         return;
-    }
+    } 
 
     // If translation doesn't exist, or target language is Arabic, return the original text
     if (!translatedText || targetLanguage === 'ar') {
