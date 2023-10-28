@@ -1,82 +1,127 @@
+
 const API_KEY = 'AIzaSyDKC-njsEW2j32V9qt9260SGT7fw9zP1IM';
 
-function translateText(text, targetLanguage, callback) {
-    const url = `https://translation.googleapis.com/language/translate/v2?key=${API_KEY}`;
 
-    const data = {
-        q: text,
-        target: targetLanguage,
-        source: 'ar'  // Source language set to Arabic, but can be changed
-    };
+var label = document.getElementById('language-label');
 
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data && data.data && data.data.translations && data.data.translations.length > 0) {
-            callback(data.data.translations[0].translatedText);
-        }
-    })
-    .catch(error => {
-        console.error('Error translating text:', error);
-    });
+function isArabic(text) {
+    var arabicPattern = /[\u0600-\u06FF]/;
+    return arabicPattern.test(text);
 }
 
-// Usage:
-translateText('مرحبا', 'en', translatedText => {
-    console.log(translatedText);  // Outputs: "Hello"
-});
+function translateText(text, targetLanguage, callback) {
+    // Check if translation exists in the courseTranslations dictionary
+    let translatedText = courseTranslations[text];
+
+    // If translation exists, and target language is English, use the provided translation
+    if (translatedText && targetLanguage === 'en') {
+        callback(translatedText);
+        return;
+    }
+
+    // If translation doesn't exist, or target language is Arabic, return the original text
+    if (!translatedText || targetLanguage === 'ar') {
+        callback(text);
+        return;
+    }
+}
+
+
+function toggleLanguage() {
+    if (label.textContent === 'Eng') {
+        label.textContent = 'عربي';
+    } else {
+        label.textContent = 'Eng';
+    }
+}
+
 
 
 function searchYouTube() {
     const searchCode = document.getElementById('searchCode').value;
-    const searchCourse = document.getElementById('searchCourse').value;
-    const searchLesson = document.getElementById('searchLesson').value;
+    let searchCourse = document.getElementById('searchCourse').value;
+    let searchLesson = document.getElementById('searchLesson').value;
 
-    var contentType = "playlist"; 
+    var contentType = "playlist";
     var searchQuery = "";
 
-    if(searchCourse == ""){
-        showWarning("الرجاء إدخال اسم المادة.")
+    if (searchCode == "") {
+        showWarning("الرجاء إدخال رمز المادة.");
         return;
     }
-    if(searchCode == ""){
-        showWarning("الرجاء إدخال رمز المادة.")
+    if (searchCourse == "") {
+        showWarning("الرجاء إدخال اسم المادة.");
         return;
     }
 
-    if(searchlesson != ""){
-        searchQuery = searchCourse + " " + searchLesson;
+    if (searchLesson != "") {
+        if (isArabic(searchLesson) && label.textContent === 'Eng') {
+            showWarning("الرجاء إدخال اسم الدرس باللغة الإنجليزية.");
+            return;
+        } else if (!isArabic(searchLesson) && label.textContent === 'عربي') {
+            showWarning("الرجاء إدخال اسم الدرس باللغة العربية.");
+            return;
+        }
         contentType = "video";
     }
 
     hideWarning()
 
+    // Handle translation for course and lesson separately
+    translateIfNeeded(searchCourse, translatedCourse => {
+        if (searchLesson) {
+            translateIfNeeded(searchLesson, translatedLesson => {
+                searchQuery = translatedCourse + " " + translatedLesson;
+                executeSearch(searchQuery, contentType);
+            });
+        } else {
+            searchQuery = translatedCourse;
+            executeSearch(searchQuery, contentType);
+        }
+    });
+}
+
+function translateIfNeeded(text, callback) {
+    if ((label.textContent === 'Eng' && isArabic(text)) || (label.textContent === 'عربي' && !isArabic(text))) {
+        const targetLanguage = label.textContent === 'Eng' ? 'en' : 'ar';
+        translateText(text, targetLanguage, translatedText => {
+            callback(translatedText);
+        });
+    } else {
+        callback(text);
+    }
+}
+
+function executeSearch(query, contentType) {
+    // This is where you execute your search using the query
+    // alert("Searching with query: " + query);
+    fetchYouTubeData(query, contentType);
+}
+
+
+function fetchYouTubeData(query, contentType) {
     fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&type=${contentType}&part=snippet&maxResults=10&q=${query}`)
         .then(response => response.json())
         .then(data => {
-            displayResults(data.items);
+            displayResults(data.items, contentType);
         })
         .catch(error => {
             console.error('Error fetching data:', error);
         });
 }
 
+
 function displayResults(items, type) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = ''; // clear previous results
 
     items.forEach(item => {
-        let id, linkURL;
-        
+        let id, linkURL, thumbnailURL;
+
         const title = item.snippet.title;
         const channelTitle = item.snippet.channelTitle;
         const publishTime = item.snippet.publishTime;
+        thumbnailURL = item.snippet.thumbnails.medium.url;
 
         if (type === 'playlist') {
             id = item.id.playlistId;
@@ -85,9 +130,10 @@ function displayResults(items, type) {
             id = item.id.videoId;
             linkURL = `https://www.youtube.com/watch?v=${id}`;
         }
-
+        console.log(`${title} ${channelTitle} ${publishTime} ${linkURL}`)
         resultsDiv.innerHTML += `
             <div class="card">
+                <img src="${thumbnailURL}" alt="${title} thumbnail" class="thumbnail">
                 <h3>${title}</h3>
                 <p>Channel: ${channelTitle}</p>
                 <p>Published: ${publishTime}</p>
@@ -100,7 +146,10 @@ function displayResults(items, type) {
 
 function showWarning(message) {
     const warningDiv = document.getElementById('warning');
-    warningDiv.textContent = message; // Set the warning message
+    warningDiv.innerHTML = `
+        ${message}
+        <i class="material-icons">warning</i> 
+    `; // Set the warning message
     warningDiv.style.display = 'block'; // Display the warning
 }
 

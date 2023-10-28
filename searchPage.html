@@ -13,8 +13,17 @@
     <div class="phone-container">
         <div class="search-container">
             <div class="top-row"> <!-- Add this container div -->
-                <input type="text" id="searchCourse" placeholder="اسم المادة">
-                <input type="text" id="searchCode" placeholder="رمز المقرر">
+                <div class="language-switch" onclick="toggleLanguage()">
+                    <span id="language-label">Eng</span>
+                </div>
+                <input type="text" id="searchCourse" placeholder="اسم المادة" list="courses">
+                <datalist id="courses">
+                    <!-- Course options will be added here dynamically using JavaScript -->
+                </datalist>
+                <input type="text" id="searchCode" placeholder="رمز المقرر" list="codes">
+                <datalist id="codes">
+                    <!-- Course options will be added here dynamically using JavaScript -->
+                </datalist>
             </div>
             <div class="top-row">
                 <button onclick="searchYouTube()">بحث</button>
@@ -22,12 +31,12 @@
             </div>
             <div id="warning" class="warning">
                 يجب كتابة رمز المقرر
-                <i class="material-icons">warning</i> 
+                <i class="material-icons">warning</i>
             </div>
         </div>
         <div id="results"></div>
     </div>
-
+    <script src="js/courseTranslations.js"></script>
     <script src="js/searchEngine.js"></script>
 </body>
 
